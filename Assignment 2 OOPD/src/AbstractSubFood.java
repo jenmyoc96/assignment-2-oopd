@@ -3,6 +3,7 @@
 public abstract class AbstractSubFood {
 	 
 	 	protected String name;
+	 	protected long price;
 	 	protected SubFood parent = null;
 	 	protected boolean leaf = true;
 	 	

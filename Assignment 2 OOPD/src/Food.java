@@ -1,26 +1,27 @@
 import java.util.*;
-public class Food extends AbstractSubFood {
+
+public class Food extends SubFood {
 Vector subfoods;
 
-public Food(String foodName) {
-	super(foodName);
+public Food(String foodName,long initPrice) {
+	super(foodName,initPrice);
 	leaf = false;
 	subfoods = new Vector();
 }
-public Food(String foodName,SubFood initParent ) {
+public Food(String foodName,SubFood initParent , long initPrice) {
 	
-	super(initParent,foodName);
+	super(initParent,foodName, initPrice);
 	leaf = false;
 	subfoods = new Vector();
 	
 }
 public Food(SubFood subf) {
-	super(subf.getName());
+	super(subf.getName(),subf.getPrice());
 	leaf = false;
 	subfoods = new Vector();
 	
 }
-public booolean add(SubFood f) throws NoSuchElementException{
+public boolean add(SubFood f) throws NoSuchElementException{
 	subfoods.add(f);
 	return true;
 }
@@ -56,15 +57,12 @@ public SubFood getChild(String s )throws NoSuchElementException{
 	         else
 	             return null;
 	     }
-		}
-	
-	
 }
-
-
-
-
-
-
-
+	public long getPrice() {
+		long sum = price;
+		for(int i = 0;i<subfoods.size();i++) {
+			sum += ((SubFood)subfoods.elementAt(i)).getPrice();	
+			}
+		return sum;
+	}
 }

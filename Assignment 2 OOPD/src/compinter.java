@@ -2,6 +2,7 @@
 // Leaf interface
 public String getName();
 public String getValues();
+public Strinf getPrice();
 
 
 // Node interface

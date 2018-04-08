@@ -3,16 +3,21 @@ import java.util.*;
 public class SubFood extends AbstractSubFood {
 	
 
-		public SubFood( String foodName ) {
+		public SubFood( String foodName, long f ) {
 			name = foodName;
+			price = f ;
 			leaf = true;
 		}
-	 public SubFood(SubFood initParent,String foodName,float initTime) {
+	 public SubFood(SubFood initParent,String foodName,long initPrice) {
 		 	name = foodName;
+		 	price = initPrice;
 		    leaf = true;
 		    parent = initParent;
 	 }
 	
+	 public long getPrice() {
+		 return price;
+	 }
 	 public String getName() {
 		 return name;
 	 }
